@@ -3,8 +3,11 @@
 
 甲骨文官网：https://www.oracle.com/cn/cloud/free/
 
-①获取root权限：
-sudo -i
+①获取root权限： sudo -i // 使用opc用户登录后切换root
+ echo root:123123 |sudo chpasswd root // 修改root的密码
+ sudo sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config; // 开启root登录
+ sudo sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config; // 开启密码验证
+ service sshd restart // 重启ssh服务
 
 ② 
 
